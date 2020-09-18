@@ -29,6 +29,7 @@ export default {
   ** Global CSS
   */
   css: [
+    'normalize.css'
   ],
   styleResources: {
     scss: [
@@ -51,7 +52,7 @@ export default {
   */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module'
+    // '@nuxtjs/eslint-module'
   ],
   /*
   ** Nuxt.js modules
@@ -59,7 +60,8 @@ export default {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    '@nuxtjs/style-resources'
   ],
   /*
   ** Axios module configuration

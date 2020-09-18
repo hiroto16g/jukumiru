@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "dev": "cross-env HOST=0.0.0.0 PORT=3000 nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
@@ -13,13 +13,18 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.12.0",
     "@nuxtjs/pwa": "^3.0.0-beta.20",
+    "cross-env": "^7.0.2",
+    "normalize.css": "^8.0.1",
     "nuxt": "^2.14.0"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^3.1.0",
     "@nuxtjs/eslint-module": "^2.0.0",
+    "@nuxtjs/style-resources": "^1.0.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.5.0",
-    "eslint-plugin-nuxt": "^1.0.0"
+    "eslint-plugin-nuxt": "^1.0.0",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^10.0.2"
   }
 }

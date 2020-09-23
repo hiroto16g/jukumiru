@@ -1,13 +1,15 @@
 $color-normal: #424242;
 $color-light: #888888;
+$color-border: #cccccc;
 $color-dark-light: #f0f0f0;
-$color-brand: #3DD965;
+$color-brand: #27D777;
+$color-modal: rgba(0, 0, 0, 0.2);
 
 $max-width-sp: 767px;
 $min-width-pc: calc($max-width-sp + 1px);
 
 $fos-3l-sp: 5.5vw;
-$fos-ll-sp: 4.5vw;
+$fos-2l-sp: 4.5vw;
 $fos-l-sp: 4.2vw;
 $fos-ml-sp: 3.8vw;
 $fos-m-sp: 3.6vw;
@@ -19,4 +21,13 @@ $margin-side-sp: 4vw;
 body {
     color: $color-normal;
     font-size: $fos-m-sp;
+}
+
+textarea {
+    resize: none;
+}
+
+input,
+textarea {
+    -webkit-appearance: none;
 }

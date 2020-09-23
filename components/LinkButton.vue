@@ -11,7 +11,7 @@
 
     &.--fill {
         background: $color-brand;
-        color: $color-normal;
+        color: white;
     }
 
     &.--outline {

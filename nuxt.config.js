@@ -78,6 +78,6 @@ export default {
     dir: 'docs'
   },
   router: {
-    base: '/'
+    base: '/app/'
   }
 }

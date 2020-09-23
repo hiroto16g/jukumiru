@@ -1,3 +1,4 @@
+const baseDir = process.env.BASE_DIR || '/'
 
 export default {
   /*
@@ -9,7 +10,8 @@ export default {
   ** Nuxt target
   ** See https://nuxtjs.org/api/configuration-target
   */
-  target: 'server',
+  // target: 'server',
+  target: 'static',
   /*
   ** Headers of the page
   ** See https://nuxtjs.org/api/configuration-head
@@ -78,6 +80,6 @@ export default {
     dir: 'docs'
   },
   router: {
-    base: '/app/'
+    base: baseDir
   }
 }

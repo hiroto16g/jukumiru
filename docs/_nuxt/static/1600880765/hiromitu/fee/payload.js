@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/hiromitu/fee", {data:[{}],fetch:[],mutations:[]});

@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/enrollment", {data:[{}],fetch:[],mutations:[]});

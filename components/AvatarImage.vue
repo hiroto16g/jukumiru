@@ -26,6 +26,28 @@
     }
 }
 
+@media screen and (min-width: $min-width-pc) {
+    .avatar_image {
+        border-radius: 50%;
+        object-fit: cover;
+
+        &.--l {
+            width: 80px;
+            height: 80px;
+        }
+
+        &.--m {
+            width: 55px;
+            height: 55px;
+        }
+
+        &.--s {
+            width: 40px;
+            height: 40px;
+        }
+    }
+}
+
 </style>
 
 

@@ -1,0 +1,1 @@
+window.__NUXT__=(function(a,b,c){return {staticAssetsBase:"\u002F_nuxt\u002Fstatic\u002F1604668022",layout:"withSearchBar",error:b,state:{lat:c,lon:c,juku:{img:a,id:a,thumbs:[],juku:{}},result:{jukus:[],ids:[],avatar_imgs:{},thumbs:{}},short_movie:{bg_img:a,movie:a,text:a,storage:b}},serverRendered:true,routePath:"\u002Fresult",config:{}}}("",null,0));

@@ -8,7 +8,7 @@
                 <div class="title">
                     {{ r.title }}
                 </div>
-                <StarRating :rate="r.rate" />
+                <StarRating :rate="r.star_rating" n_evals="1" display="rate" />
                 <div class="status">
                     入塾時の学年：{{ r.status }}
                 </div>
@@ -60,6 +60,44 @@
         }
     }
 }
+
+@media screen and (min-width: $min-width-pc) {
+    .jp__review {
+        margin: auto;
+        width: 600px;
+
+        .n_reviews {
+            color: $color-light;
+            font-size: $fos-s-pc;
+            margin-bottom: 50px;
+        }
+
+        .reviews {
+            color: $color-normal;
+
+            .review {
+                margin-bottom: 30px;
+
+                .title {
+                    font-size: $fos-l-pc;
+                    margin-bottom: 3px;
+                }
+
+                .status {
+                    color: $color-light;
+                    margin-top: 5px;
+                }
+
+                .text {
+                    font-size: $fos-m-pc;
+                    margin: 10px 20px 0;
+                    line-height: 1.5;
+                    letter-spacing: 0.06em;
+                }
+            }
+        }
+    }
+}
 </style>
 
 
@@ -73,23 +111,13 @@ export default {
     },
     data() {
         return {
-            reviews: [
-                {
-                    title: 'とても面白い先生でした！',
-                    status: '中学3年生',
-                    rate: 5,
-                    text: '高校受験のために夏休みから通い始めました。学校よりも先生と近くて話しやすくてよかったです！苦手な社会を教えてもらっていたのですが、先生の教え方がうまくて面白くて、今では一番好きな教科です！ありがとうございました！'
-                },
-                {
-                    title: '動画で見た通りでよかった',
-                    status: '保護者',
-                    rate: 4,
-                    text: '塾紹介の動画を拝見して、息子に合ってそうだと思い、入塾させました。申し込みの時にしか塾へ伺っていないので、塾の雰囲気や先生方の教え方が動画の通りなのか少し不安がありましたが、息子の話を聞く限り大丈夫だったようです。まだ入塾してから一か月しかたっていなく、成績の上昇は感じられませんが、期待を込めて星４とさせていただきます'
-                }
-            ]
+            reviews: null
         }
     },
     methods: {
+    },
+    mounted() {
+        this.reviews = require('@/assets/' + this.$store.state.juku.id + '/review.json')
     }
 }
 </script>

@@ -1,20 +1,9 @@
 <template>
     <div class="jp__fee">
-        <div class="wrapper">
-            <div class="corse_name">
-                夏期講習
-            </div>
-            <div class="text">
-                1万円～3万円
-            </div>
-        </div>
-
-        <div class="wrapper">
-            <div class="corse_name">
-                普通授業
-            </div>
-            <div class="text">
-                1コマ当たり2千～5千円
+        <div class="items">
+            <div class="wrapper" v-for="(i, j) in items" :key="j">
+                <div class="title">{{ i.title }}</div>
+                <div class="text">{{ i.text }}</div>
             </div>
         </div>
     </div>
@@ -30,7 +19,7 @@
             margin: 0 $margin-side-sp 5vw;
             color: $color-normal;
 
-            .corse_name {
+            .title {
                 font-size: $fos-l-sp;
                 margin-bottom: 1vw;
             }
@@ -38,6 +27,29 @@
             .text {
                 font-size: $fos-m-sp;
                 margin-left: 5vw;
+                line-height: 1.5;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $min-width-pc) {
+    .jp__fee {
+        width: 600px;
+        margin: auto;
+
+        .wrapper {
+            margin: 0 0 30px;
+            color: $color-normal;
+
+            .title {
+                font-size: $fos-l-pc;
+                margin-bottom: 5px;
+            }
+
+            .text {
+                font-size: $fos-m-pc;
+                margin-left: 20px;
                 line-height: 1.5;
             }
         }
@@ -51,10 +63,14 @@ export default {
     layout: 'jukuPage',
     data() {
         return {
-            thumbs: this.$store.state.juku.thumbs
+            items: ''
         }
     },
     methods: {
+    },
+    mounted() {
+        console.log(this.$store.state.juku.id)
+        this.items = require('@/assets/' + this.$store.state.juku.id + '/fee.json')
     }
 }
 </script>

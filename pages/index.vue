@@ -1,26 +1,41 @@
 <template>
     <div class="index">
-        <button @click="getLocation" class="find_house">現在地から塾をさがす</button>
+        <LinkButton text="現在地から塾をさがす" class="--fill" url="result" :preprocessing="getLocation" />
     </div>
 </template>
 
 <style lang="scss">
+@media screen and (max-width: $max-width-sp) {
     .index {
         text-align: center;
-        .find_house {
-            border: none;
-            background: $color-brand;
-            padding: 3vw;
-            border-radius: 5vw;
-            margin-top: 20vw;
-        }
         
+        .link_button {
+            font-size: $fos-2l-sp;
+            margin-top: 20vh;
+        }
     }
+}
+
+@media screen and (min-width: $min-width-pc) {
+    .index {
+        text-align: center;
+        margin-top: 250px;
+        
+        .link_button {
+            font-size: 30px;
+        }
+    }
+}
 </style>
 
 <script>
+import LinkButton from '@/components/LinkButton'
+
 export default {
     layout: 'withSearchBar',
+    components: {
+        LinkButton
+    },
     data() {
         return {
             latitude: 0,
@@ -44,7 +59,6 @@ export default {
 
             //     navigator.geolocation.getCurrentPosition(this.success, this.error, options)
             // }
-            this.$router.push('result')
         },
         success (position) {
             this.$store.commit('save_geo_location', position.coords.latitude, position.coords.longitude)
@@ -66,19 +80,9 @@ export default {
                     break
                 }
             }
-        },
-        return_city(a) {
-            this.city = a
-        },
-        // async get_city_name() {
-        //     const url = 'http://geoapi.heartrails.com/api/json?method=getCities'
-        //     const res = await this.$axios.$get(url, {
-        //         params: {
-        //             prefecture: '秋田県'
-        //         }
-                
-        //     })
-        //     return {'axios_data': res}
-        // }
+    },
+    fetch({ redirect }) {
+        redirect(301, '/result')
+    }
 }
 </script>

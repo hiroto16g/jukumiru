@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/hiromitu/review", {data:[{}],fetch:[],mutations:[]});

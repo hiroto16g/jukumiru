@@ -1,7 +1,7 @@
 <template>
     <div class="jp__index">
-        <div class="thumb" v-for="(thumb, i) in thumbs" :key="i" @click="to_movie_page">
-            <img :src="thumb" alt="" class="thumb__img">
+        <div class="thumb" v-for="(thumb, i) in thumbs" :key="i" @click="to_movie_page(thumb)">
+            <img :src="thumb.img" alt="" class="thumb__img">
         </div>
     </div>
 </template>
@@ -11,20 +11,48 @@
 @media screen and (max-width: $max-width-sp) {
     .jp__index {
         display: flex;
-        overflow-x: scroll;
-        overflow-y: hidden;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        
+        .thumb {
+            width: calc((100% - 0.5% * 2) / 3);
+            height: calc(((100vw - 0.5vw * 2) / 3) * 4 / 3);
+            margin-bottom: 0.5vw;
+
+            .thumb__img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        &::after {
+            content: '';
+            width: calc((100% - 0.5% * 2) / 3);
+        }
+    }
+}
+
+@media screen and (min-width: $min-width-pc) {
+    .jp__index {
+        display: flex;
+        width: 602px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 0 auto;
         
         .thumb {
             .thumb__img {
-                width: 35vw;
-                height: calc(35vw * 4 / 3);
+                width: 200px;
+                height: calc(200px * 4 / 3);
                 object-fit: cover;
-                margin-right: 0.5vw;
+                cursor: pointer;
             }
+        }
 
-            &:first-child {
-                margin-left: $margin-side-sp;
-            }
+        &::after {
+            content: '';
+            width: 200px;
         }
     }
 }
@@ -40,8 +68,11 @@ export default {
         }
     },
     methods: {
-        to_movie_page() {
-            this.$router.push('/hiromitu/shortMovie/sample')
+        to_movie_page(thumb) {
+            this.$store.commit('short_movie/init', {
+                bg_img: thumb.img
+            })
+            this.$router.push('/' + this.$store.state.juku.id + '/shortMovie/' + thumb.name)
         }
     }
 }

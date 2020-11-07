@@ -24,14 +24,16 @@ export default {
       { hid: 'description', name: 'description', content: process.env.npm_package_description || '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon' }
     ]
   },
   /*
   ** Global CSS
   */
   css: [
-    'normalize.css'
+    'normalize.css',
+    '@/assets/css/main.css'
   ],
   styleResources: {
     scss: [
@@ -63,13 +65,15 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    '@nuxtjs/proxy'
   ],
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
   */
-  axios: {},
+  axios: {
+  },
   /*
   ** Build configuration
   ** See https://nuxtjs.org/api/configuration-build/

@@ -1,12 +1,12 @@
-$color-normal: #424242;
+$color-normal: #333;
 $color-light: #888888;
-$color-border: #cccccc;
+$color-border: #ddd;
 $color-dark-light: #f0f0f0;
-$color-brand: #27D777;
+$color-brand: #19D600;
 $color-modal: rgba(0, 0, 0, 0.2);
 
 $max-width-sp: 767px;
-$min-width-pc: calc($max-width-sp + 1px);
+$min-width-pc: calc(#{$max-width-sp} + 1px);
 
 $fos-3l-sp: 5.5vw;
 $fos-2l-sp: 4.5vw;
@@ -15,6 +15,14 @@ $fos-ml-sp: 3.8vw;
 $fos-m-sp: 3.6vw;
 $fos-ms-sp: 3.4vw;
 $fos-s-sp: 3.2vw;
+
+$fos-3l-pc: 30px;
+$fos-2l-pc: 25px;
+$fos-l-pc: 22px;
+$fos-ml-pc: 18px;
+$fos-m-pc: 16px;
+$fos-ms-pc: 14px;
+$fos-s-pc: 12px;
 
 $margin-side-sp: 4vw;
 
@@ -30,4 +38,24 @@ textarea {
 input,
 textarea {
     -webkit-appearance: none;
+}
+
+@media screen and (max-width: $max-width-sp) {
+    body {
+        font-size: $fos-m-sp;
+    }
+
+    .pc {
+        display: none;
+    }
+}
+
+@media screen and (min-width: $min-width-pc) {
+    body {
+        font-size: $fos-m-pc;
+    }
+
+    .sp {
+        display: none;
+    }
 }

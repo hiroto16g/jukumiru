@@ -1,10 +1,11 @@
 {
-  "name": "juke",
+  "name": "jukumiru",
   "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "cross-env HOST=0.0.0.0 PORT=3000 nuxt",
-    "build": "nuxt build",
+    "build": "nuxt build && npm run build:copy:ssr",
+    "build:copy:ssr": "rimraf functions/ssr && mkdirp functions/ssr && cpx \".nuxt/dist/**\" functions/ssr/dist",
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
@@ -12,19 +13,24 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.12.0",
+    "@nuxtjs/proxy": "^2.0.1",
     "@nuxtjs/pwa": "^3.0.0-beta.20",
+    "@nuxtjs/style-resources": "^1.0.0",
+    "axios": "^0.20.0",
     "cross-env": "^7.0.2",
+    "firebase": "^7.21.1",
+    "node-sass": "^4.14.1",
     "normalize.css": "^8.0.1",
-    "nuxt": "^2.14.0"
+    "nuxt": "^2.14.6",
+    "qrcode": "^1.4.4",
+    "sass-loader": "^10.0.4"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^3.1.0",
     "@nuxtjs/eslint-module": "^2.0.0",
-    "@nuxtjs/style-resources": "^1.0.0",
     "babel-eslint": "^10.1.0",
+    "cpx": "^1.5.0",
     "eslint": "^7.5.0",
-    "eslint-plugin-nuxt": "^1.0.0",
-    "node-sass": "^4.14.1",
-    "sass-loader": "^10.0.2"
+    "eslint-plugin-nuxt": "^1.0.0"
   }
 }

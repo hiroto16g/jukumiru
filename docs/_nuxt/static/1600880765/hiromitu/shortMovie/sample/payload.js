@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/hiromitu/shortMovie/sample", {data:[{}],fetch:[],mutations:[]});

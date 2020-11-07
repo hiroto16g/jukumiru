@@ -1,5 +1,5 @@
 <template>
-    <button class="link_button">{{ text }}</button>
+    <button class="link_button" @click="jump">{{ text }}</button>
 </template>
 
 
@@ -26,6 +26,14 @@
         padding: 0.5em 4vw;
     }
 }
+
+@media screen and (min-width: $min-width-pc) {
+    .link_button {
+        border-radius: 80px;
+        padding: 0.7em 1em;
+        cursor: pointer;
+    }
+}
 </style>
 
 
@@ -36,6 +44,23 @@ export default {
             require: true,
             default: 'button',
             type: String
+        },
+        url: {
+            require: true,
+            default: '/',
+            type: String
+        },
+        preprocessing: {
+            require: false,
+            type: Function
+        }
+    },
+    methods: {
+        jump() {
+            if (this.preprocessing) {
+                this.preprocessing()
+            }
+            this.$router.push(this.url)
         }
     }
 }

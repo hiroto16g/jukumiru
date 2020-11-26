@@ -22,7 +22,7 @@
             <div class="juku_info">
                 <AvatarImage :src="$store.state.juku.img" class="--m" @click.native="to_juku_page" />
                 <div class="juku_name" @click="to_juku_page">{{ $store.state.juku.juku.name }}</div>
-                <LinkButton text="お申し込み" class="--fill" @click.native="to_enrollment" />
+                <LinkButton text="お申し込み" class="--fill" :url="'/' + this.id + '/enrollment'" />
             </div>
             <div class="overview">
                 {{ text }}
@@ -559,9 +559,6 @@ export default {
         },
         to_movie_page(thumb) {
             this.$router.push('/' + this.id + '/shortMovie/' + thumb.name)
-        },
-        to_enrollment() {
-            this.$router.push('/' + this.id + '/enrollment')
         },
         to_juku_page() {
             this.$router.push('/' + this.$store.state.juku.id)

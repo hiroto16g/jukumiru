@@ -54,22 +54,10 @@
                 </div>
                 <input type="email">
             </div>
-            <div class="item">
-                <div class="item_name">
-                    郵便番号
-                </div>
-                <input type="text">
-            </div>
-            <div class="item">
-                <div class="item_name">
-                    住所
-                </div>
-                <textarea name="" id=""></textarea>
-            </div>
         </div>
         
         <div class="submit">
-            <LinkButton text="この内容で申し込む" class="--fill" />
+            <LinkButton text="この内容で申し込む" class="--fill" :url="'/' + $store.state.juku.id" />
         </div>
     </div>
 </template>
@@ -170,9 +158,39 @@
 <script>
 import LinkButton from '@/components/LinkButton'
 
+import firebase from '@/plugins/firebase'
+
 export default {
     components: {
         LinkButton
+    },
+    beforeMount() {
+        if (!this.$store.state.juku.id) {
+            const storage = firebase.storage().ref()
+
+            this.$store.commit('result/get_basic_jukus_info')
+
+            const id = this.$route.path.split('/')[1]
+
+            storage.child('avatar_imgs/' + id + '.jpg').getDownloadURL().then(url => {
+                this.$store.commit('juku/set_img', url)
+            })
+
+            storage.child('thumbnails/' + id).listAll().then(result => {
+                result.items.forEach(item => {
+                    item.getDownloadURL().then(url => {
+                        let thumb = {}
+                        this.$set(thumb, 'img', url)
+                        let name = item.location.path.split('/').slice(-1)[0].split('.')[0]
+                        this.$set(thumb, 'name', name)
+                        this.$store.commit('juku/set_thumbs', thumb)
+                    })
+                })
+            })
+
+            this.$store.commit('juku/set_juku', this.$store.state.result.jukus[id])
+            this.$store.commit('juku/set_id', id)
+        }
     }
 }
 </script>

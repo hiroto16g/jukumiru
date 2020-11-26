@@ -42,7 +42,7 @@ export default {
     props: {
         text: {
             require: true,
-            default: 'button',
+            default: 'link button',
             type: String
         },
         url: {
@@ -53,6 +53,10 @@ export default {
         preprocessing: {
             require: false,
             type: Function
+        },
+        postprocessing: {
+            require: false,
+            type: Function
         }
     },
     methods: {
@@ -60,8 +64,15 @@ export default {
             if (this.preprocessing) {
                 this.preprocessing()
             }
+
             this.$router.push(this.url)
+
+            if (this.postprocessing) {
+                this.postprocessing()
+            }
         }
     }
 }
+
+
 </script>

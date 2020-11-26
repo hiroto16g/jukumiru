@@ -120,7 +120,7 @@ export default {
             return {width: String(this.rate * 20) + '%'}
         },
         display_val() {
-            return this.display == 'n_evals' ? '(' + this.n_evals + ')' : this.rate
+            return this.display == 'n_evals' ? this.n_evals + '件の評価' : this.rate
         }
     }
 }

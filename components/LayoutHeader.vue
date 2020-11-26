@@ -16,7 +16,7 @@
                 <img src="@/assets/icons/search.svg" alt="">
             </div>
             <div class="sign_in">
-                <LinkButton text="塾の方" class="--outline" url="sign_in" />
+                <LinkButton text="塾の方" class="--outline" url="/sign_in" />
             </div>
         </div>
     </div>

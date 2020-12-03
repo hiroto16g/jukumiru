@@ -117,7 +117,7 @@
             top: 0;
             left: 50%;
             transform: translate(-50%, 0);
-            width: 100vw;
+            width: 100%;
             align-items: center;
             padding: 15px 10px;
             border-bottom: solid thin $color-border;

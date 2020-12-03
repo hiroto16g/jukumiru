@@ -14,4 +14,9 @@ app.use(async (req, res) => {
   nuxt.render(req, res)
 });
 
+app.get('*', (req, res) => {
+  res.setHeader('Content-Type', 'text/html')
+  res.setHeader('Cache-Control', 'public, max-age=300, s-maxage=600')
+})
+
 exports.ssr = functions.https.onRequest(app)

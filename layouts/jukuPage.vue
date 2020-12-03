@@ -90,10 +90,6 @@
 @media screen and (min-width: $min-width-pc) {
     .juku_page {
         margin-bottom: 100px;
-
-        .fixed_wrapper {
-            padding: 15px 20px;
-        }
         
         .profile {
             position: relative;

@@ -15,7 +15,7 @@
             <div class="search_icon sp" @click="display_search_wrapper">
                 <img src="@/assets/icons/search.svg" alt="">
             </div>
-            <div class="sign_in">
+            <div class="sign_in_btn">
                 <LinkButton text="塾の方" class="--outline" url="/sign_in" />
             </div>
         </div>
@@ -98,7 +98,7 @@
                 }
             }
 
-            .sign_in {
+            .sign_in_btn {
                 margin-left: 5vw;
             }
         }

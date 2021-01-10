@@ -4,7 +4,7 @@
 
         <div class="profile" v-if="juku">
             <AvatarImage :src="img" class="--l" />
-            <LinkButton text="お申し込み" class="--fill" :url="'/' + this.id + '/enrollment'" />
+            <LinkButton text="体験授業を申し込む" class="--fill" :url="'/' + this.id + '/enrollment'" />
             <div class="text_profile">
                 <div class="name">{{ juku.name }}</div>
                 <div class="address">{{ juku.prefecture + juku.city + juku.address_line }}</div>
@@ -171,16 +171,16 @@ export default {
         return {
             categories: [
                 {
-                    category: '動画',
-                    url: ''
-                },
-                {
                     category: '基本情報',
-                    url: '/info'
+                    url: ''
                 },
                 {
                     category: '料金',
                     url: '/fee'
+                },
+                {
+                    category: 'Q & A',
+                    url: '/qa'
                 },
                 {
                     category: 'レビュー',

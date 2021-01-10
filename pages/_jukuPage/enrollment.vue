@@ -1,7 +1,7 @@
 <template>
     <div class="enrollment">
         <div class="title">
-            洋光塾へのお申し込み
+            {{ $store.state.juku.juku.name }}へのお申し込み
         </div>
 
         <div class="items">
@@ -18,7 +18,7 @@
             </div>
             <div class="item">
                 <div class="item_name">
-                    お子様のお名前
+                    お名前
                 </div>
                 <input type="text">
             </div>

@@ -7,7 +7,7 @@
             </div>
         </div>
         <div class="form_button">
-            <LinkButton text="塾に問い合わせる" class="--outline" />
+            <LinkButton text="塾に問い合わせる" class="--outline" :url="'/' + $store.state.juku.id + '/inquiry'" />
         </div>
     </div>
 </template>

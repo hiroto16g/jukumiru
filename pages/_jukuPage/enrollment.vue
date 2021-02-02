@@ -134,7 +134,8 @@
                     border-radius: 5px;
                     padding: 10px 15px 10px;
                     width: 100%;
-                    font-size: $fos-l-pc;
+                    font-size: $fos-ml-pc;
+                    height: 45px;
                 }
 
                 textarea {

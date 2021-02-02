@@ -51,7 +51,7 @@
                 .text {
                     font-size: $fos-m-sp;
                     margin: 2vw 4vw 0;
-                    line-height: 1.5;
+                    line-height: 1.7;
                     letter-spacing: 0.06em;
                 }
             }
@@ -91,7 +91,7 @@
                 .text {
                     font-size: $fos-m-pc;
                     margin: 10px 20px 0;
-                    line-height: 1.5;
+                    line-height: 1.7;
                     letter-spacing: 0.06em;
                 }
             }

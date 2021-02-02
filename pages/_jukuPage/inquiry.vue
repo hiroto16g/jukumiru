@@ -48,7 +48,7 @@
 
                 .item_name {
                     font-size: $fos-l-sp;
-                    margin-bottom: 0.7vw;
+                    margin-bottom: 1.3vw;
                 }
 
                 input,
@@ -57,11 +57,11 @@
                     border-radius: 1vw;
                     padding: 3vw 3vw 2.8vw;
                     width: 100%;
-                    font-size: $fos-2l-sp;
+                    font-size: $fos-l-sp;
                 }
 
                 textarea {
-                    height: 10vh;
+                    height: 40vw;
                 }
             }
         }
@@ -103,11 +103,15 @@
                     border-radius: 5px;
                     padding: 10px 15px 10px;
                     width: 100%;
-                    font-size: $fos-l-pc;
+                    font-size: $fos-ml-pc;
+                }
+
+                input {
+                    height: 45px;
                 }
 
                 textarea {
-                    height: 100px;
+                    height: 200px;
                 }
             }
         }

@@ -1,14 +1,14 @@
 <template>
     <div class="jp__index">
-        <div class="thumbs">
-            <div class="thumb" v-for="(thumb, i) in thumbs" :key="i" @click="to_movie_page(thumb)">
-                <img :src="thumb.img" alt="" class="thumb__img">
-            </div>
-        </div>
         <div class="items">
             <div class="wrapper" v-for="(i, j) in items" :key="j">
                 <div class="title">{{ i.title }}</div>
                 <div class="text">{{ i.text }}</div>
+            </div>
+        </div>
+        <div class="thumbs">
+            <div class="thumb" v-for="(thumb, i) in thumbs" :key="i" @click="to_movie_page(thumb)">
+                <img :src="thumb.img" alt="" class="thumb__img">
             </div>
         </div>
     </div>

@@ -5,6 +5,7 @@ const fs = require('fs');
 const handlebars = require('handlebars');
 const nodemailer = require('nodemailer')
 const QRCode = require('qrcode');
+const basicAuth = require('basic-auth-connect')
 
 const nuxt = new Nuxt({
   buildDir: 'ssr',
@@ -12,6 +13,10 @@ const nuxt = new Nuxt({
 });
 
 const app = express()
+
+app.all('/*', basicAuth(function(user, password) {
+    return user === 'nugget' && password === 'nuggetnagetoko';
+}));
 
 app.use(async (req, res) => {
   await nuxt.ready()

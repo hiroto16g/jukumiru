@@ -13,7 +13,8 @@
             "n_evals": 10
         },
         "bio": "test_1塾です",
-        "tel": ""
+        "tel": "",
+        "email": "flythenuggets@gmail.com"
     },
     "test_2": {
         "name": "test_2塾",
@@ -29,6 +30,7 @@
             "n_evals": 0
         },
         "bio": "test_2塾です",
-        "tel": ""
+        "tel": "",
+        "email": "flythenuggets@gmail.com"
     }
 }

@@ -9,7 +9,7 @@
     "logs": "firebase functions:log"
   },
   "engines": {
-    "node": "10"
+    "node": "8"
   },
   "main": "index.js",
   "dependencies": {
@@ -26,6 +26,7 @@
     "nodemailer": "^6.4.17",
     "normalize.css": "^8.0.1",
     "nuxt": "^2.14.6",
+    "qrcode": "^1.4.4",
     "sass-loader": "^10.0.4"
   },
   "devDependencies": {

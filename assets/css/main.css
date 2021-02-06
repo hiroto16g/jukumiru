@@ -5,3 +5,7 @@ input[type="search"] {
 input[type="search"]::-webkit-search-decoration {
     -webkit-appearance: none;
 }
+
+body {
+    letter-spacing: 0.04em;
+}

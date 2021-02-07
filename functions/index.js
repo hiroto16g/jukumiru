@@ -40,9 +40,11 @@ exports.ssr = functions.https.onRequest(app)
 // 送信元情報
 const CONFIG_SEND_MAIL = {
     "from": 'info@jukumiru.net',
+    //"user": 'flythenuggets@gmail.com',// Oauth設定
     "user": 'info@jukumiru.net',
     "pass": '#TZ7O9s4',
     "host": 'smtp21.gmoserver.jp',
+    //"host": 'smtp.gmail.com',   // Oauth設定
     "port": 465,
 };
 // 送信プロトコル
@@ -53,6 +55,14 @@ const SEND_CONFIG = {
     auth: {
         user: CONFIG_SEND_MAIL.user,
         pass: CONFIG_SEND_MAIL.pass,
+
+        /*
+        // Oauth設定
+        type: 'OAuth2',
+        clientId     : '586224629229-27dplrvmubgsbi3uqk74sjqsrt2do62p.apps.googleusercontent.com',
+        clientSecret : '4O_DaIP0OP_RSotVe-AjdOkD',
+        refreshToken : '1//04xAF_-UZOaxxCgYIARAAGAQSNwF-L9IrUkZmJiEJYjGT_CqXXVhQOw5Y_zbiyuJBqjEuIZPyjrd-juOm57CUxbDV0X79UlnKk38'
+        */
     }
 };
 // 送信情報

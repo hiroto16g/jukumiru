@@ -48,6 +48,7 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
+    '~/plugins/const',
   ],
   /*
   ** Auto import components

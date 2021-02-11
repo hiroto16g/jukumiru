@@ -1,3 +1,7 @@
+/* ----------------------------------------------------
+    Firebase接続情報
+---------------------------------------------------- */
+
 import firebase from "firebase/app";
 import 'firebase/storage';
 import "firebase/auth";
@@ -31,7 +35,6 @@ if(env_mode == "1"){
     firebaseConfig = firebaseConfigDevelop;
 }else{
 }
-
 if (firebase.apps.length === 0) {
     firebase.initializeApp(firebaseConfig);
 }

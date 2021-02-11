@@ -51,9 +51,7 @@ export const actions = {
             },
         }
 
-        // Function起動
-        var cf_send_introduction_mail = firebase.functions().httpsCallable('send_introduction_mail')
-        var response = await cf_send_introduction_mail(call_params)
+        var response = await this.$cloud_functions.send_introduction_mail(call_params)
         console.log(response)
     },
     /* --------------------------------------------------
@@ -78,9 +76,7 @@ export const actions = {
             },
         }
 
-        // Function起動
-        var cf_send_qa_mail = firebase.functions().httpsCallable('send_qa_mail')
-        var response = await cf_send_qa_mail(call_params)
+        var response = await this.$cloud_functions.send_qa_mail(call_params)
         console.log(response)
     },
 }

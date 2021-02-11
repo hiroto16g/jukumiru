@@ -7,6 +7,8 @@ const nodemailer = require('nodemailer')
 const QRCode = require('qrcode');
 const basicAuth = require('basic-auth-connect')
 
+const use_region = "asia-northeast1";
+
 const nuxt = new Nuxt({
   buildDir: 'ssr',
   dev: false
@@ -103,7 +105,7 @@ async function send_mail(mail_data){
 /* ----------------------------------------------------
     申し込み後メール送信
 ---------------------------------------------------- */
-exports.send_introduction_mail = functions.https.onCall(async (data, context) => {
+exports.send_introduction_mail = functions.region(use_region).https.onCall(async (data, context) => {
 
     // 申込者用パラメータ
     var request_params = data.request;
@@ -238,7 +240,7 @@ function create_introduction_mail_juku(params) {
 /* ----------------------------------------------------
     問い合わせメール送信
 ---------------------------------------------------- */
-exports.send_qa_mail = functions.https.onCall(async (data, context) => {
+exports.send_qa_mail = functions.region(use_region).https.onCall(async (data, context) => {
 
     // 質問者パラメータ
     var request_params = data.request;

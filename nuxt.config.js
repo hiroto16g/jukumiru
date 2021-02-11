@@ -49,6 +49,7 @@ export default {
   */
   plugins: [
     '~/plugins/const',
+    '~/plugins/cloud_functions',
   ],
   /*
   ** Auto import components

@@ -1,15 +1,14 @@
-export default (context, inject) => {
-    /* 関数版
-    const TEST_FUNC = (msg) => {
-        console.log(`Hello ${msg}!`)
-    }
-    inject('TEST_FUNC', TEST_FUNC)
-    context.$TEST_FUNC = TEST_FUNC
-    */
+/* ----------------------------------------------------
+    共通定数
+---------------------------------------------------- */
 
-    const MESSAGES = {
-        ERROR_SIGN_IN : "メールアドレスまたはパスワードが間違っています。",
+export default (context, inject) => {    
+    const $const = {
+        MESSAGES : {
+            ERROR_SIGN_IN : "メールアドレスまたはパスワードが間違っています。",
+        },
+        REGION: "asia-northeast1",
     }
-    inject('MESSAGES', MESSAGES)
-    context.$MESSAGES = MESSAGES
+    inject('const', $const)
+    context.$const = $const
 }

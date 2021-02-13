@@ -2,13 +2,10 @@
   --------------------------------------- 共通定数 ---------------------------------------
 */
 
+import const_json from '@/plugins/const.json'
+
 export default (context, inject) => {    
-    const $const = {
-        MESSAGES : {
-            ERROR_SIGN_IN : "メールアドレスまたはパスワードが間違っています。",
-        },
-        REGION: "asia-northeast1",
-    }
+    const $const = const_json
     inject('const', $const)
     context.$const = $const
 }

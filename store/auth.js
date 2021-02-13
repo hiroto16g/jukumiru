@@ -15,6 +15,7 @@ export const mutations = {
     sign_in_error(state) {
         state.uid = ''
         state.email = ''
+        console.log(this.$const)
         state.message = this.$const.MESSAGES.ERROR_SIGN_IN
     },
 }

@@ -6,6 +6,7 @@ import firebase from "firebase/app";
 import 'firebase/storage';
 import "firebase/auth";
 import "firebase/functions";
+import "firebase/firestore";
 
 // モード（"1"：本番環境、"2"：開発環境）
 var env_mode = "2";
@@ -23,7 +24,7 @@ const serviceAccount = require("./serviceAccountKey.json");
 var firebaseConfigDevelop = {
     apiKey: 'AIzaSyBlXfpt-FtKLQ8a0j3bWokuICto5q_Q2Gw',
     authDomain: "jukumiru-develop.firebaseapp.com",
-    databaseURL: "https://juku-demo.firebaseio.com",    //本番と同じ
+    databaseURL: "https://jukumiru-develop.firebaseio.com",
     storageBucket: 'jukumiru-develop.appspot.com', 
     projectId: "jukumiru-develop",
 };

@@ -89,14 +89,12 @@ handlebars.registerHelper('breaklines', function(text) {
 });
 // メール送信
 async function send_mail(mail_data){
-    console.log(mail_data)
     try {
         // メール送信
         var result = await TRANSPOTER.sendMail(mail_data);
         // 送信結果を返す
         return result;
     } catch (e) {
-        console.log(e)
         // エラー内容を返す
         return e;
     }

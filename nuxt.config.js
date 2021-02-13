@@ -50,6 +50,7 @@ export default {
   plugins: [
     '~/plugins/const',
     '~/plugins/cloud_functions',
+    '~/plugins/cloud_firestore',
   ],
   /*
   ** Auto import components

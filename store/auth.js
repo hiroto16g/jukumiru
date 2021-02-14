@@ -15,7 +15,6 @@ export const mutations = {
     sign_in_error(state) {
         state.uid = ''
         state.email = ''
-        console.log(this.$const)
         state.message = this.$const.MESSAGES.ERROR_SIGN_IN
     },
 }
@@ -32,7 +31,7 @@ export const actions = {
         firebase.auth().signInWithEmailAndPassword(email, password)
             .then((data) => {
                 commit("sign_in_success", data.user);
-                router.push('/account')
+                router.push('/account/test_cd')
             })
             .catch((error) => {
                 var errorCode = error.code;

@@ -9,18 +9,20 @@
                 <div class="item_name">
                     メールアドレス
                 </div>
-                <input type="email">
+                <input type="email" v-model="email">
             </div>
             <div class="item">
                 <div class="item_name">
                     パスワード
                 </div>
-                <input type="password">
+                <input type="password" v-model="password">
             </div>
         </div>
-        
+        <div>
+            {{ message }}
+        </div>
         <div class="submit">
-            <LinkButton text="ログインする" class="--fill" url="/account" />
+            <LinkButton text="ログインする" class="--fill" @click.native="sign_in" :url="'/sign_in'" />
         </div>
     </div>
 </template>
@@ -125,6 +127,29 @@ export default {
     layout: 'withSearchBar',
     components: {
         LinkButton
-    }
+    },
+    data() {
+        return {
+            email: "",
+            password: "",
+        }
+    },
+    computed: {
+        message: {
+            get () {
+                return this.$store.state.auth.message
+            },
+        }
+    },
+    methods: {
+        sign_in(){
+            var input_params = {
+                email: this.email,
+                password: this.password,
+                router: this.$router,
+            }
+            this.$store.dispatch('auth/sign_in', input_params)
+        }
+    },
 }
 </script>

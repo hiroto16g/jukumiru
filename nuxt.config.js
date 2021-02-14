@@ -48,6 +48,9 @@ export default {
   ** https://nuxtjs.org/guide/plugins
   */
   plugins: [
+    '~/plugins/const',
+    '~/plugins/cloud_functions',
+    '~/plugins/cloud_firestore',
   ],
   /*
   ** Auto import components

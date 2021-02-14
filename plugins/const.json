@@ -1,0 +1,9 @@
+{
+    "MESSAGES": {
+        "SUCCESS_SEND_MAIL": "メールの送信を完了しました。",
+        "ERROR_SIGN_IN": "メールアドレスまたはパスワードが間違っています。",
+        "ERROR_DB_SELECT": "データの取得に失敗しました。",
+        "ERROR_SEND_MAIL": "メールの送信に失敗しました。"
+    },
+    "REGION": "asia-northeast1"
+}

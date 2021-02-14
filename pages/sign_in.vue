@@ -22,11 +22,7 @@
             {{ message }}
         </div>
         <div class="submit">
-<<<<<<< HEAD
-            <LinkButton text="ログインする" class="--fill" url="/account/test_cd" />
-=======
-            <LinkButton text="ログインする" class="--fill" @click.native="sign_in" :url="'/sign_in'" />
->>>>>>> 43c9801ea486a2ca20691ecc1890875f78e64e6b
+            <LinkButton text="ログインする" class="--fill" @click.native="sign_in" url="/account/test_cd" />
         </div>
     </div>
 </template>

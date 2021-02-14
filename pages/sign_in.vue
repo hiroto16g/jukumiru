@@ -20,7 +20,7 @@
         </div>
         
         <div class="submit">
-            <LinkButton text="ログインする" class="--fill" url="/account" />
+            <LinkButton text="ログインする" class="--fill" url="/account/test_cd" />
         </div>
     </div>
 </template>

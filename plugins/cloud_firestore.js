@@ -7,50 +7,50 @@ import const_inner from '@/plugins/const_inner'
 import common from '@/plugins/common'
 
 const firestore = firebase.firestore()
-const collection_jukus = firestore.collection('jukus')
+const collection_juku_head = firestore.collection('juku_head')
 
 export default (context, inject) => {    
     const $cloud_firestore = {
-        insert_juku: insert_juku,
-        update_juku: update_juku,
-        fetch_juku: fetch_juku,
+        insert_juku_head: insert_juku_head,
+        update_juku_head: update_juku_head,
+        fetch_juku_head: fetch_juku_head,
     }
     inject('cloud_firestore', $cloud_firestore)
     context.$cloud_firestore = $cloud_firestore
 }
 
 /* --------------------------------------------------
-    塾基本情報
+    塾ヘッダー情報
 -------------------------------------------------- */
 // 追加
-async function insert_juku(input_params) {
+async function insert_juku_head(input_params) {
     var juku_cd = input_params.juku_cd
     input_params.del_flg = false
-    var juku_obj = create_juku_obj(input_params)
-    await collection_jukus.doc(juku_cd).set(juku_obj)
+    var juku_head = create_juku_head(input_params)
+    await collection_juku_head.doc(juku_cd).set(juku_head)
 }
 
 // 更新
-async function update_juku(input_params) {
+async function update_juku_head(input_params) {
     var juku_cd = input_params.juku_cd
-    var juku_obj = create_juku_obj(input_params)
-    await collection_jukus.doc(juku_cd).update(juku_obj)
+    var juku_head = create_juku_head(input_params)
+    await collection_juku_head.doc(juku_cd).update(juku_head)
 }
 
 // 取得
-async function fetch_juku(juku_cd) {
+async function fetch_juku_head(juku_cd) {
     var result
     var data
     var message
 
-    var response = await collection_jukus.doc(juku_cd).get()
+    var response = await collection_juku_head.doc(juku_cd).get()
     if (response.exists == true) {
         // 取得成功
-        var juku = response.data()
-        if (juku.del_flg == false) {
+        var juku_head = response.data()
+        if (juku_head.del_flg == false) {
             // 通常データ
             result = true
-            data = juku
+            data = juku_head
             message = ""
         } else {
             // 削除済みデータ
@@ -68,8 +68,8 @@ async function fetch_juku(juku_cd) {
     return common.create_result_obj(result, data, message)
 }
 
-// 塾オブジェクト生成
-function create_juku_obj(input_params) {
+// 塾ヘッダーオブジェクト生成
+function create_juku_head(input_params) {
     var name = input_params.name
     var prefecture = input_params.prefecture
     var city = input_params.city
@@ -81,8 +81,9 @@ function create_juku_obj(input_params) {
     var bio = input_params.bio
     var tel = input_params.tel
     var email = input_params.email
+    var del_flg = input_params.del_flg
     
-    var juku = {
+    var juku_head = {
         name: name,
         prefecture: prefecture,
         city: city,
@@ -101,6 +102,5 @@ function create_juku_obj(input_params) {
         del_flg: del_flg,
     }
 
-    return juku
+    return juku_head
 }
-

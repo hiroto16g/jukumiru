@@ -158,9 +158,6 @@ export default {
     mounted() {
         this.$store.commit('result/get_basic_jukus_info')
 
-        // テスト用
-        this.$store.dispatch('juku/fetch_juku', { juku_cd: 'ajkefauhfajsdfha' })
-
         const storage = firebase.storage().ref()
 
         this.ids.map(id => {

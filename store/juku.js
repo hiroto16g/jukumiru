@@ -46,22 +46,22 @@ export const actions = {
             alert(response.message)// TODO:暫定処理
         }
     },
-    // 塾情報取得
-    async fetch_juku({ commit }, input_params) {
+    // 塾ヘッダー１件取得
+    async fetch_juku_head({ commit }, input_params) {
         var juku_cd = input_params.juku_cd
-        var response = await this.$cloud_firestore.fetch_juku(juku_cd)
+        var response = await this.$cloud_firestore.fetch_juku_head(juku_cd)
         if (response.result == true) {
         } else {
             alert(response.message)// TODO:暫定処理
         }
     },
-    // 塾情報追加（運用準備用）
-    async insert_juku({ commit }, input_params) {
-        var response = await this.$cloud_firestore.insert_juku(input_params)
+    // 塾ヘッダー追加（運用準備用）
+    async insert_juku_head({ commit }, input_params) {
+        var response = await this.$cloud_firestore.insert_juku_head(input_params)
         console.log(response)
     },
-    // 塾情報更新
-    async update_juku({ commit }, input_params) {
-        var response = await this.$cloud_firestore.update_juku(input_params)
+    // 塾ヘッダー更新
+    async update_juku_head({ commit }, input_params) {
+        var response = await this.$cloud_firestore.update_juku_head(input_params)
     },
 }

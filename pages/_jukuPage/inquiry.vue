@@ -9,24 +9,24 @@
                 <div class="item_name">
                     お名前
                 </div>
-                <input type="text">
+                <input type="text" v-model="user_nm">
             </div>
             <div class="item">
                 <div class="item_name">
                     メールアドレス
                 </div>
-                <input type="email">
+                <input type="email" v-model="user_email">
             </div>
             <div class="item">
                 <div class="item_name">
                     お申し込み内容
                 </div>
-                <textarea id="inquiry_content"></textarea>
+                <textarea id="inquiry_content" v-model="note"></textarea>
             </div>
         </div>
         
         <div class="submit">
-            <LinkButton text="この内容で問い合わせる" class="--fill" :url="'/' + $store.state.juku.id" />
+            <LinkButton text="この内容で問い合わせる" class="--fill" :url="'/' + $store.state.juku.id" @click.native="send_qa_mail" />
         </div>
     </div>
 </template>
@@ -136,6 +136,25 @@ import firebase from '@/plugins/firebase'
 export default {
     components: {
         LinkButton
+    },
+    data(){
+        return {
+            user_nm: "",
+            user_email: "",
+            note: "",
+        }
+    },
+    methods: {
+        send_qa_mail(){
+            var input_params = {
+                juku_nm: this.$store.state.juku.juku.name,
+                juku_email: this.$store.state.juku.juku.email,
+                user_nm: this.user_nm,
+                user_email: this.user_email,
+                note: this.note,
+            }
+            this.$store.dispatch('juku/send_qa_mail', input_params)
+        }
     },
     beforeMount() {
         if (!this.$store.state.juku.id) {

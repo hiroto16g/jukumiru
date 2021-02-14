@@ -1,6 +1,6 @@
 [
     {
-        "origin": ["https://juku-demo.firebaseapp.com", "https://juku-demo.web.app", "https://jukumiru.net", "https://juqumiru.com", "http://localhost:3000"],
+        "origin": ["https://juku-demo.firebaseapp.com", "https://juku-demo.web.app", "https://jukumiru.net", "https://juqumiru.com", "http://localhost:3000", "https://dev.jukumiru.net/"],
         "responseHeader": ["Content-Type", "Access-Control-Allow-Origin"],
         "method": ["GET", "POST", "PUT", "DELETE"],
         "maxAgeSeconds": 3600

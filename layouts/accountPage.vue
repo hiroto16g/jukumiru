@@ -1,7 +1,7 @@
 <template>
     <div class="account_page">
         <div class="profile">
-            <AvatarImage :src="img" class="--m" />
+            <AvatarImage src="" class="--m" />
             <div class="name">test_cd</div>
         </div>
 

@@ -43,17 +43,15 @@
                 border-bottom: solid thin $color-border;
                 display: flex;
                 justify-content: space-evenly;
-                padding: 1vw 0;
                 font-size: $fos-l-sp;
                 color: $color-light;
                 margin-bottom: 10vw;
                 .content {
-                    padding: 1.3vw 3vw;
+                    padding: 3vw 3vw;
 
                     &.display {
-                        color: white;
-                        background: $color-normal;
-                        border-radius: 5vw;
+                        color: $color-normal;
+                        border-bottom: solid 0.5vw $color-normal;
                     }
                 }
             }
@@ -144,7 +142,8 @@ export default {
             this.search_flag = false
         },
         is_display(url) {
-            const _url = this.id + url.replace('/', '')
+            const _url = 'account' + 'test_cd' + url.replace('/', '')
+            console.log(_url)
             return _url == this.$route.path.replace(/\//g, '')
         }
     }

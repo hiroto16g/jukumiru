@@ -28,7 +28,9 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon' }
+      { rel: 'apple-touch-icon', sizes: '180x180', href: '/apple-touch-icon' },
+      {rel: 'preconnect', href: 'https://fonts.gstatic.com'},
+      {href: "https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap", rel: "stylesheet"}
     ]
   },
   /*

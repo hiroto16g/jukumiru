@@ -6,6 +6,15 @@ input[type="search"]::-webkit-search-decoration {
     -webkit-appearance: none;
 }
 
+textarea {
+    resize: vertical;
+}
+
+input,
+textarea {
+    -webkit-appearance: none;
+}
+
 body {
     letter-spacing: 0.04em;
     font-family: 

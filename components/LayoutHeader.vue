@@ -32,7 +32,7 @@
             position: fixed;
             display: flex;
             top: 0;
-            width: 100vw;
+            width: 100%;
             align-items: center;
             padding: 1.5vw 3vw 1vw;
             border-bottom: solid thin $color-border;
@@ -49,7 +49,7 @@
 
             .search_wrapper {
                 display: none;
-                width: 100vw;
+                width: 100%;
                 background: white;
                 padding: 1.5vw 3vw 1vw;
                 position: relative;
@@ -58,7 +58,7 @@
                 .input_search {
                     font-size: 16px;
                     padding: 3vw;
-                    width: 75vw;
+                    width: 78%;
                     border-radius: 2.5vw;
                     border: none;
                     background: #f0f0f0;
@@ -117,7 +117,7 @@
             top: 0;
             left: 50%;
             transform: translate(-50%, 0);
-            width: 100%;
+            width: calc(100% - 20px);
             align-items: center;
             padding: 15px 10px;
             border-bottom: solid thin $color-border;
@@ -136,11 +136,13 @@
                 left: 50%;
                 top: 50%;
                 transform: translate(-50%, -50%);
+                width: 50%;
+                max-width: 500px;
 
                 .input_search {
                     font-size: 16px;
                     padding: 15px 20px;
-                    width: 500px;
+                    width: 100%;
                     border-radius: 10px;
                     border: none;
                     background: #f0f0f0;

@@ -1,8 +1,11 @@
 <template>
     <div class="account_page">
+        <LayoutHeader />
+
         <div class="profile">
             <AvatarImage src="" class="--m" />
-            <div class="name">test_cd</div>
+            <div class="name">test_cd塾</div>
+            <LinkButton text="設定" class="--outline_calm" :url="'/account/' + 'test_cd' + '/profile'" />
         </div>
 
         <div class="switch_bar">
@@ -16,7 +19,6 @@
         </div>
 
         <Nuxt />
-        <!-- <LinkContainer url="/"></LinkContainer>   -->
     </div>
 </template>
 
@@ -35,6 +37,12 @@
                 font-size: $fos-3l-sp;
                 margin: 2vw 0 0.5vw;
             }
+
+            .link_button {
+                position: absolute;
+                top: 6vw;
+                right: $margin-side-sp;
+            }
         }
 
         .switch_bar {
@@ -42,12 +50,13 @@
                 border-top: solid thin $color-border;
                 border-bottom: solid thin $color-border;
                 display: flex;
-                justify-content: space-evenly;
-                font-size: $fos-l-sp;
+                font-size: $fos-m-sp;
                 color: $color-light;
                 margin-bottom: 10vw;
+                padding-left: $margin-side-sp;
+
                 .content {
-                    padding: 3vw 3vw;
+                    padding: 3.5vw 3vw;
 
                     &.display {
                         color: $color-normal;
@@ -65,12 +74,18 @@
         
         .profile {
             position: relative;
-            margin: 0 auto;
+            margin: 0 auto 30px;
             width: 600px;
 
             .name {
                 font-size: $fos-3l-pc;
                 margin: 10px 0 5px;
+            }
+
+            .link_button {
+                position: absolute;
+                top: 10px;
+                right: 0;
             }
         }
 
@@ -82,19 +97,22 @@
                 width: 600px;
                 display: flex;
                 justify-content: space-evenly;
-                padding: 10px 0;
                 font-size: $fos-l-pc;
                 color: $color-light;
                 margin: auto;
 
                 .content {
-                    padding: 8px 20px;
+                    padding: 12px 20px;
                     cursor: pointer;
 
                     &.display {
-                        color: white;
-                        background: $color-normal;
-                        border-radius: 50px;
+                        color: $color-normal;
+                        border-bottom: solid 2px $color-normal;
+                    }
+
+                    &:hover {
+                        color: $color-normal;
+                        border-bottom: solid 2px $color-normal;
                     }
                 }
             }
@@ -105,18 +123,21 @@
 
 
 <script>
-// import LinkContainer from '@/components/LinkContainer'
+import LinkContainer from '@/components/LinkContainer'
+import LinkButton from '@/components/LinkButton'
+import LayoutHeader from '@/components/LayoutHeader'
 
 export default {
-    layout: '',
     components: {
-        // LinkContainer
+        LinkContainer,
+        LinkButton,
+        LayoutHeader
     },
     data() {
         return {
             categories: [
                 {
-                    category: 'プロフィール',
+                    category: '動画',
                     url: ''
                 },
                 {
@@ -143,7 +164,6 @@ export default {
         },
         is_display(url) {
             const _url = 'account' + 'test_cd' + url.replace('/', '')
-            console.log(_url)
             return _url == this.$route.path.replace(/\//g, '')
         }
     }

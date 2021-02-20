@@ -4,6 +4,7 @@ $color-border: #eee;
 $color-dark-light: #f0f0f0;
 $color-brand: #19D600;
 $color-modal: rgba(0, 0, 0, 0.2);
+$color-alert: #FF3646;
 
 $max-width-sp: 767px;
 $min-width-pc: calc(#{$max-width-sp} + 1px);
@@ -29,15 +30,6 @@ $margin-side-sp: 4vw;
 body {
     color: $color-normal;
     font-size: $fos-m-sp;
-}
-
-textarea {
-    resize: none;
-}
-
-input,
-textarea {
-    -webkit-appearance: none;
 }
 
 @media screen and (max-width: $max-width-sp) {

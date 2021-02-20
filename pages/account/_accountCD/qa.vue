@@ -1,5 +1,5 @@
 <template>
-    <div class="account_fee">
+    <div class="account_qa">
         <div class="container">
             <div class="item" v-for="(item, i) in items" :key="i">
                 <DisplayWithErrorMessage :error_message="item.title.em" class="title">
@@ -16,7 +16,7 @@
 
 <style lang="scss">
 @media screen and (max-width: $max-width-sp) {
-    .account_fee {
+    .account_qa {
         .container {
             margin: 0 $margin-side-sp;
 
@@ -42,7 +42,7 @@
 }
 
 @media screen and (min-width: $min-width-pc) {
-    .account_fee {
+    .account_qa {
         .container {
             max-width: 768px;
             width: 80%;

@@ -4,6 +4,7 @@
         "prefecture": "秋田県",
         "city": "秋田市",
         "address_line": "手形学園町1-1",
+        "building_name": "",
         "coordination": {
             "latitude": 0,
             "longitude": 0
@@ -21,6 +22,7 @@
         "prefecture": "秋田県",
         "city": "秋田市",
         "address_line": "雄和椿川奥椿岱193-2",
+        "building_name": "",
         "coordination": {
             "latitude": 0,
             "longitude": 0
@@ -37,6 +39,7 @@
         "prefecture": "秋田県",
         "city": "秋田市",
         "address_line": "東通7丁目6-17",
+        "building_name": "",
         "coordination": {
             "latitude": 0,
             "longitude": 0
@@ -52,7 +55,8 @@
         "name": "個別指導スタディアカデミー",
         "prefecture": "秋田県",
         "city": "秋田市",
-        "address_line": "中通2丁目MKビル２階",
+        "address_line": "中通2丁目",
+        "building_name": "MKビル２階",
         "coordination": {
             "latitude": 0,
             "longitude": 0
@@ -68,7 +72,8 @@
         "name": "進学塾アクティブ",
         "prefecture": "秋田県",
         "city": "秋田市",
-        "address_line": "南通宮田5丁目2-2トンボビル１階",
+        "address_line": "南通宮田5丁目2-2",
+        "building_name": "トンボビル１階",
         "coordination": {
             "latitude": 0,
             "longitude": 0
@@ -84,7 +89,8 @@
         "name": "秋田プラスワン未来塾",
         "prefecture": "秋田県",
         "city": "秋田市",
-        "address_line": "中通4丁目13番サンプラザ2階",
+        "address_line": "中通4丁目13番",
+        "building_name": "サンプラザ2階",
         "coordination": {
             "latitude": 0,
             "longitude": 0
@@ -100,7 +106,8 @@
         "name": "武田学習塾",
         "prefecture": "秋田県",
         "city": "秋田市",
-        "address_line": "南通1丁目7番山本ビル4階",
+        "address_line": "南通1丁目7番",
+        "building_name": "山本ビル4階",
         "coordination": {
             "latitude": 0,
             "longitude": 0

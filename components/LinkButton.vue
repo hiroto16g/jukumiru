@@ -18,6 +18,16 @@
         border: solid thin $color-brand;
         color: $color-brand;
     }
+
+    &.--outline_calm {
+        border: solid thin $color-light;
+        color: $color-normal;
+    }
+
+    &.--outline_alert {
+        border: solid thin $color-alert;
+        color: $color-alert;
+    }
 }
 
 @media screen and (max-width: $max-width-sp) {
@@ -30,7 +40,7 @@
 @media screen and (min-width: $min-width-pc) {
     .link_button {
         border-radius: 80px;
-        padding: 0.7em 1em;
+        padding: 0.7em 1.3em;
         cursor: pointer;
     }
 }

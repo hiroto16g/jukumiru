@@ -160,14 +160,6 @@ export default {
 
         const storage = firebase.storage().ref()
 
-        // テスト用
-        var test = {
-            juku_cd: "khjkhjkhjkhkj",
-            title: "テストタイトル",
-            text: "テスト本文",
-        }
-        this.$store.dispatch('juku/select_juku_fee', test)
-
         this.ids.map(id => {
             storage.child('avatar_imgs/' + id + '.jpg').getDownloadURL().then(url => {
                 this.$set(this.avatar_imgs, id, url)

@@ -3,17 +3,35 @@
 */
 
 import firebase from '@/plugins/firebase'
-import const_inner from '@/plugins/const_inner'
 import common from '@/plugins/common'
 
 const firestore = firebase.firestore()
 const collection_juku_head = firestore.collection('juku_head')
+const collection_juku_info = firestore.collection('juku_info')
+const collection_juku_fee = firestore.collection('juku_fee')
+const collection_juku_qa = firestore.collection('juku_qa')
 
 export default (context, inject) => {    
     const $cloud_firestore = {
+        // 塾ヘッダー情報
         insert_juku_head: insert_juku_head,
         update_juku_head: update_juku_head,
         fetch_juku_head: fetch_juku_head,
+
+        // 塾基本情報
+        insert_juku_info: insert_juku_info,
+        update_juku_info: update_juku_info,
+        select_juku_info: select_juku_info,
+
+        // 塾料金情報
+        insert_juku_fee: insert_juku_fee,
+        update_juku_fee: update_juku_fee,
+        select_juku_fee: select_juku_fee,
+
+        // 塾Q&A情報
+        insert_juku_qa: insert_juku_qa,
+        update_juku_qa: update_juku_qa,
+        select_juku_qa: select_juku_qa,
     }
     inject('cloud_firestore', $cloud_firestore)
     context.$cloud_firestore = $cloud_firestore
@@ -39,33 +57,8 @@ async function update_juku_head(input_params) {
 
 // 取得
 async function fetch_juku_head(juku_cd) {
-    var result
-    var data
-    var message
-
     var response = await collection_juku_head.doc(juku_cd).get()
-    if (response.exists == true) {
-        // 取得成功
-        var juku_head = response.data()
-        if (juku_head.del_flg == false) {
-            // 通常データ
-            result = true
-            data = juku_head
-            message = ""
-        } else {
-            // 削除済みデータ
-            result = false
-            data = null
-            message = "塾情報：" + const_inner.MESSAGES.ERROR_DB_SELECT
-        }
-    } else {
-        // 取得失敗
-        result = false
-        data = null
-        message = "塾情報：" + const_inner.MESSAGES.ERROR_DB_SELECT
-    }
-
-    return common.create_result_obj(result, data, message)
+    return common.create_result_fetch(response)
 }
 
 // 塾ヘッダーオブジェクト生成
@@ -103,4 +96,93 @@ function create_juku_head(input_params) {
     }
 
     return juku_head
+}
+
+/* --------------------------------------------------
+    塾基本情報
+-------------------------------------------------- */
+// 追加
+async function insert_juku_info(input_params) {
+    input_params.del_flg = false
+    var juku_info = create_juku_standard_obj(input_params)
+    await collection_juku_info.doc().set(juku_info)
+}
+
+// 更新
+async function update_juku_info(input_params) {
+    var id = input_params.id
+    var juku_info = create_juku_standard_obj(input_params)
+    await collection_juku_info.doc(id).update(juku_info)
+}
+
+// 取得
+async function select_juku_info(juku_cd) {
+    var response = await collection_juku_info.where('juku_cd', '==', juku_cd).get()
+    return common.create_result_select(response)
+}
+
+/* --------------------------------------------------
+    塾料金情報
+-------------------------------------------------- */
+// 追加
+async function insert_juku_fee(input_params) {
+    input_params.del_flg = false
+    var juku_fee = create_juku_standard_obj(input_params)
+    await collection_juku_fee.doc().set(juku_fee)
+}
+
+// 更新
+async function update_juku_fee(input_params) {
+    var id = input_params.id
+    var juku_fee = create_juku_standard_obj(input_params)
+    await collection_juku_fee.doc(id).update(juku_fee)
+}
+
+// 取得
+async function select_juku_fee(juku_cd) {
+    var response = await collection_juku_fee.where('juku_cd', '==', juku_cd).get()
+    return common.create_result_select(response)
+}
+
+/* --------------------------------------------------
+    塾Q&A情報
+-------------------------------------------------- */
+// 追加
+async function insert_juku_qa(input_params) {
+    input_params.del_flg = false
+    var juku_qa = create_juku_standard_obj(input_params)
+    await collection_juku_qa.doc().set(juku_qa)
+}
+
+// 更新
+async function update_juku_qa(input_params) {
+    var id = input_params.id
+    var juku_qa = create_juku_standard_obj(input_params)
+    await collection_juku_qa.doc(id).update(juku_qa)
+}
+
+// 取得
+async function select_juku_qa(juku_cd) {
+    var response = await collection_juku_qa.where('juku_cd', '==', juku_cd).get()
+    return common.create_result_select(response)
+}
+
+/* --------------------------------------------------
+    共通処理
+-------------------------------------------------- */
+// 塾情報標準オブジェクト生成
+function create_juku_standard_obj(input_params) {
+    var juku_cd = input_params.juku_cd
+    var title = input_params.title
+    var text = input_params.text
+    var del_flg = input_params.del_flg
+    
+    var juku_standard_obj = {
+        juku_cd: juku_cd,
+        title: title,
+        text: text,
+        del_flg: del_flg,
+    }
+
+    return juku_standard_obj
 }
